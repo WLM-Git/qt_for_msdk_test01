@@ -1,0 +1,115 @@
+// 构建脚本配置（来自顶级build.gradle）
+buildscript {
+    repositories {
+        google()
+        jcenter() // 注意：jcenter已弃用，可替换为mavenCentral()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.4.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10" // 使用具体版本替换$KOTLIN_VERSION
+    }
+}
+
+// 项目依赖的仓库（来自顶级build.gradle的allprojects）
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
+
+// 应用插件（来自模块级build.gradle）
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+// Android配置（来自模块级build.gradle）
+android {
+    compileSdkVersion 34
+    namespace 'com.example.msdksample'
+
+    defaultConfig {
+        applicationId "com.example.msdksample" // 替换为您的应用ID
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        // testInstrumentationRunner仅用于测试，若Qt项目不需要可删除
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // MSDK需要的NDK配置
+        ndk {
+            abiFilters 'arm64-v8a' // MSDK仅支持此架构
+        }
+
+        // MSDK原生库的打包选项
+        packagingOptions {
+            pickFirst 'lib/arm64-v8a/libc++_shared.so'
+            pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+            doNotStrip "*/*/libconstants.so"
+            doNotStrip "*/*/libdji_innertools.so"
+            doNotStrip "*/*/libdjibase.so"
+            doNotStrip "*/*/libDJICSDKCommon.so"
+            doNotStrip "*/*/libDJIFlySafeCore-CSDK.so"
+            doNotStrip "*/*/libdjifs_jni-CSDK.so"
+            doNotStrip "*/*/libDJIRegister.so"
+            doNotStrip "*/*/libdjisdk_jni.so"
+            doNotStrip "*/*/libDJIUpgradeCore.so"
+            doNotStrip "*/*/libDJIUpgradeJNI.so"
+            doNotStrip "*/*/libDJIWaypointV2Core-CSDK.so"
+            doNotStrip "*/*/libdjiwpv2-CSDK.so"
+            doNotStrip "*/*/libFlightRecordEngine.so"
+            doNotStrip "*/*/libvideo-framing.so"
+            doNotStrip "*/*/libwaes.so"
+            doNotStrip "*/*/libagora-rtsa-sdk.so"
+            doNotStrip "*/*/libc++.so"
+            doNotStrip "*/*/libc++_shared.so"
+            doNotStrip "*/*/libmrtc_28181.so"
+            doNotStrip "*/*/libmrtc_agora.so"
+            doNotStrip "*/*/libmrtc_core.so"
+            doNotStrip "*/*/libmrtc_core_jni.so"
+            doNotStrip "*/*/libmrtc_data.so"
+            doNotStrip "*/*/libmrtc_log.so"
+            doNotStrip "*/*/libmrtc_onvif.so"
+            doNotStrip "*/*/libmrtc_rtmp.so"
+            doNotStrip "*/*/libmrtc_rtsp.so"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // Qt项目中确保原生库路径正确
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+// 依赖（来自模块级build.gradle）
+dependencies {
+    implementation "com.dji:dji-sdk-v5-aircraft:5.12.0" // 使用具体版本替换$SDK_VERSION
+    compileOnly "com.dji:dji-sdk-v5-aircraft-provided:5.12.0"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    // 测试相关依赖，若Qt项目不需要可删除
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // Qt需要的依赖（可能由Qt Creator自动添加）
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
