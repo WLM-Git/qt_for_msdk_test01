@@ -46,9 +46,6 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew \
     android/gradlew.bat \
-    android/libs/appcompat-1.6.1.aar \
-    android/libs/dji-sdk-v5-aircraft-provided-5.12.0.jar \
-    android/libs/jetified-rxandroid-3.0.0.aar \
     android/libs/lifecycle-common-2.5.1.jar \
     android/libs/lifecycle-livedata-core-2.5.1-sources.jar \
     android/res/drawable/ic_launcher_background.xml \

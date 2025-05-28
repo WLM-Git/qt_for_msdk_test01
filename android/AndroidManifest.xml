@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.qtapp" android:versionCode="" android:versionName=""> <!-- 替换为您的应用包名 -->
-
-    <!-- 权限声明（与原文件相同） -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.msdksample" android:versionCode="1" android:versionName="1.0">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
@@ -19,10 +17,9 @@
     <uses-feature android:name="android.hardware.usb.accessory" android:required="true"/>
 
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:supportsRtl="true" android:theme="@style/AppTheme">
-        <meta-data android:name="com.dji.sdk.API_KEY" android:value="402c913fb63bd2e52a37aaba"/> <!-- MSDK API 密钥 -->
+        <meta-data android:name="com.dji.sdk.API_KEY" android:value="402c913fb63bd2e52a37aaba"/>
 
-        <activity android:name="org.qtproject.qt.android.bindings.QtActivity" android:label=""> <!-- Qt 默认 Activity -->
-            android:exported=&quot;true&quot;&gt;
+        <activity android:name="org.qtproject.qt.android.bindings.QtActivity" android:label="" android:exported="true">
             <!-- 主入口和启动器 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -36,5 +33,5 @@
         <meta-data android:name="android.app.lib_name" android:value=""/>
         </activity>
     </application>
-<uses-sdk android:minSdkVersion="24"/>
+<uses-sdk android:minSdkVersion="26"/>
 </manifest>
