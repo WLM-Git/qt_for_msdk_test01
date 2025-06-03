@@ -46,14 +46,48 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew \
     android/gradlew.bat \
-    android/libs/lifecycle-common-2.5.1.jar \
-    android/libs/lifecycle-livedata-core-2.5.1-sources.jar \
+    android/res/drawable-v24/ic_launcher_foreground.xml \
+    android/res/drawable-v24/ic_launcher_foreground.xml \
     android/res/drawable/ic_launcher_background.xml \
+    android/res/drawable/ic_launcher_background.xml \
+    android/res/drawable/ic_launcher_foreground.xml \
+    android/res/layout/activity_main.xml \
+    android/res/layout/activity_main.xml \
+    android/res/mipmap-anydpi-v26/ic_launcher.xml \
+    android/res/mipmap-anydpi-v26/ic_launcher.xml \
+    android/res/mipmap-anydpi-v26/ic_launcher_round.xml \
+    android/res/mipmap-anydpi-v26/ic_launcher_round.xml \
+    android/res/mipmap-hdpi/ic_launcher.png \
+    android/res/mipmap-hdpi/ic_launcher.png \
+    android/res/mipmap-hdpi/ic_launcher_round.png \
+    android/res/mipmap-hdpi/ic_launcher_round.png \
+    android/res/mipmap-mdpi/ic_launcher.png \
+    android/res/mipmap-mdpi/ic_launcher.png \
+    android/res/mipmap-mdpi/ic_launcher_round.png \
+    android/res/mipmap-mdpi/ic_launcher_round.png \
+    android/res/mipmap-xhdpi/ic_launcher.png \
+    android/res/mipmap-xhdpi/ic_launcher.png \
+    android/res/mipmap-xhdpi/ic_launcher_round.png \
+    android/res/mipmap-xhdpi/ic_launcher_round.png \
+    android/res/mipmap-xxhdpi/ic_launcher.png \
+    android/res/mipmap-xxhdpi/ic_launcher.png \
+    android/res/mipmap-xxhdpi/ic_launcher_round.png \
+    android/res/mipmap-xxhdpi/ic_launcher_round.png \
+    android/res/mipmap-xxxhdpi/ic_launcher.png \
+    android/res/mipmap-xxxhdpi/ic_launcher.png \
+    android/res/mipmap-xxxhdpi/ic_launcher_round.png \
+    android/res/mipmap-xxxhdpi/ic_launcher_round.png \
+    android/res/values-night/themes.xml \
+    android/res/values-night/themes.xml \
     android/res/values/accessory_filter.xml \
     android/res/values/attrs.xml \
     android/res/values/colors.xml \
+    android/res/values/colors.xml \
     android/res/values/libs.xml \
+    android/res/values/strings.xml \
+    android/res/values/strings.xml \
     android/res/values/styles.xml \
+    android/res/values/themes.xml \
     android/res/values/themes.xml \
     android/res/values/themes/themes.xml \
     android/res/xml/accessory_filter.xml \

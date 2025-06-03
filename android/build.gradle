@@ -97,6 +97,7 @@ android {
         main {
             jniLibs.srcDirs = ['libs']
             manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs 'res'
         }
     }
 }
