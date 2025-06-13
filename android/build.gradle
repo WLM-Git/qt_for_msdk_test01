@@ -1,3 +1,4 @@
+println ">>> [DEBUG] Qt Android Path from properties is: ${project.properties.qtAndroidDir}"
 // 构建脚本配置（来自顶级build.gradle）
 buildscript {
     repositories {
@@ -95,7 +96,10 @@ android {
     // Qt项目中确保原生库路径正确
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src']
+            java.srcDirs += ["${project.properties.qtAndroidDir}/src"]
+            aidl.srcDirs += ["${project.properties.qtAndroidDir}/src"]
+            jniLibs.srcDirs = ['${project.properties.qtAndroidBuild}/libs']
             manifest.srcFile 'AndroidManifest.xml'
             res.srcDirs 'res'
         }
@@ -113,5 +117,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     // Qt需要的依赖（可能由Qt Creator自动添加）
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // 让Gradle直接从Qt的安装目录加载所有官方jar包
+    //implementation fileTree(dir: "${project.properties.qtAndroidDir}/jar", include: ['*.jar'])
+    implementation fileTree(dir: "${project.properties.qtAndroidBuild}/libs", include: ['*.jar', '*.aar'])
+    // E:\Qt_project\build-qt_for_msdk_test01-Android_for_armeabi_v7a_arm64_v8a_x86_x86_64_Clang_Qt_5_14_2_for_Android-Debug\android-build\libs
 }
