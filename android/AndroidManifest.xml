@@ -16,7 +16,9 @@
     <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
     <uses-feature android:name="android.hardware.usb.accessory" android:required="true"/>
 
-    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:supportsRtl="true" android:theme="@style/AppTheme">
+    <application android:name=".QtApplication"
+android:allowBackup="true" android:icon="@mipmap/ic_launcher"
+android:label="@string/app_name" android:supportsRtl="true" android:theme="@style/AppTheme">
         <meta-data android:name="com.dji.sdk.API_KEY" android:value="402c913fb63bd2e52a37aaba"/>
 
         <activity android:name="com.example.myqtapp.QtActivity" android:exported="true" android:label="">
