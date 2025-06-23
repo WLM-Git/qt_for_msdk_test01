@@ -27,7 +27,7 @@ apply plugin: 'kotlin-kapt'
 // Android配置（来自模块级build.gradle）
 android {
     compileSdkVersion 34
-    namespace 'com.example.myqtapp'//'com.example.msdksample'
+    namespace 'com.example.myqtapp'
 
     defaultConfig {
         applicationId "com.example.myqtapp" // 替换为您的应用ID
@@ -97,8 +97,8 @@ android {
     sourceSets {
         main {
             java.srcDirs = ['src']
-            //java.srcDirs += ["${project.properties.qtAndroidDir}/src"]
-            aidl.srcDirs += ["src"]
+            java.srcDirs += ["${project.properties.qtAndroidDir}/src"]
+            aidl.srcDirs += ["${project.properties.qtAndroidDir}/src"]
             jniLibs.srcDirs = ['${project.properties.qtAndroidBuild}/libs']
             manifest.srcFile 'AndroidManifest.xml'
             res.srcDirs 'res'
