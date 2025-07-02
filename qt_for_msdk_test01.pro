@@ -3,6 +3,8 @@ QT       += androidextras
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+TARGET      = qt_for_msdk_test01
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
